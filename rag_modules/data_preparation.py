@@ -212,7 +212,7 @@ class DataPreparationModule:
                     # 为子块分配唯一ID
                     child_id = str(uuid.uuid4())
 
-                    # 合并原文档元数据和新的标题元数据
+                    # 合并原文档元数据和新的标题元数据（合并/更新元数据）
                     chunk.metadata.update(doc.metadata)
                     chunk.metadata.update({
                         "chunk_id": child_id,

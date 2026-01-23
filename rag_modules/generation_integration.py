@@ -8,7 +8,6 @@ from typing import List
 
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
-from langchain_community.chat_models.moonshot import MoonshotChat
 from langchain_core.documents import Document
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
@@ -18,7 +17,7 @@ logger = logging.getLogger(__name__)
 class GenerationIntegrationModule:
     """生成集成模块 - 负责LLM集成和回答生成"""
     
-    def __init__(self, model_name: str = "kimi-k2-0711-preview", temperature: float = 0.1, max_tokens: int = 2048):
+    def __init__(self, model_name: str = "deepseek-chat", temperature: float = 0.1, max_tokens: int = 2048):
         """
         初始化生成集成模块
         
@@ -29,7 +28,7 @@ class GenerationIntegrationModule:
         """
         self.model_name = model_name
         self.temperature = temperature
-        self.max_tokens = max_tokens
+        self.max_tokens = max_tokens # 限制模型生成的最大token数
         self.llm = None
         self.setup_llm()
     
